@@ -1,0 +1,15 @@
+from chatterbot import ChatBot
+from chatterbot.trainers import ChatterBotCorpusTrainer
+
+# Create a new chat bot named "bot"
+bot = ChatBot('bot')
+
+# Train the bot using the ChatterBot corpus data
+trainer = ChatterBotCorpusTrainer(bot)
+trainer.train("chatterbot.corpus.english")
+
+# Start a conversation with the bot
+while True:
+    request = input('You: ')
+    response = bot.get_response(request)
+    print('Bot: ', response)
